@@ -30,3 +30,5 @@ USER_ROLES = [
 MAX_USER_MODEL_FIELD_LENGTH = 150
 
 REQUIRED_FIELDS = ['password', 'first_name', 'last_name', ]
+
+PAGINATION_PAGE_SIZE = 10

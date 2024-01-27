@@ -20,3 +20,7 @@ class PaymentRequestAdmin(admin.ModelAdmin):
     list_display = ('amount', 'requisites', 'status', 'created')
     search_fields = ('amount', 'requisites', 'status', 'created')
     list_filter = ('amount', 'requisites', 'status', 'created')
+
+    def new_format_created(self, obj):
+        return obj.date.strftime('%d.%b.%Y')
+    new_format_created.short_description = 'Дата создания заявки'

@@ -53,3 +53,6 @@ class PaymentRequest(models.Model):
         verbose_name = 'Заявка'
         verbose_name_plural = 'Заявки'
         ordering = ('-created',)
+
+    def __str__(self) -> str:
+        return f'{self.requisites} {self.status}'

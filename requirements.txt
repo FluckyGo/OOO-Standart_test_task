@@ -5,3 +5,4 @@ djangorestframework==3.12.4
 python-dotenv==1.0.0
 django-phonenumber-field==7.3.0
 django-phonenumbers==1.0.1
+psycopg2==2.9.9
