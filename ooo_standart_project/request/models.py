@@ -24,10 +24,12 @@ class Requisite(models.Model):
     phone_number = PhoneNumberField()
     card_limit = models.DecimalField(
         'Лимит доступных средств', max_digits=10, decimal_places=2)
+    created = models.DateTimeField('Дата создания', auto_now_add=True)
 
     class Meta:
         verbose_name = 'Реквизиты'
         verbose_name_plural = 'Реквизиты'
+        ordering = ('-created',)
 
     def __str__(self) -> str:
         return f'{self.last_name} {self.first_name}, тел.: {self.phone_number}'

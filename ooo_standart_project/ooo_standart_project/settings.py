@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_seed',
+    'django_bootstrap5',
     'phonenumbers',
     'phonenumber_field',
     'users.apps.UsersConfig',
@@ -46,10 +47,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'ooo_standart_project.urls'
 
+TEMPLATES_DIR = BASE_DIR / 'templates'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

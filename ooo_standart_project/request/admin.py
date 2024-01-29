@@ -8,9 +8,11 @@ admin.site.empty_value_display = '-пусто-'
 @admin.register(Requisite)
 class RequisiteAdmin(admin.ModelAdmin):
     list_display = ('payment_type', 'account_type', 'first_name',
-                    'last_name', 'middle_name', 'phone_number', 'card_limit')
+                    'last_name', 'middle_name',
+                    'phone_number', 'card_limit', 'created')
     search_fields = ('payment_type', 'account_type', 'first_name',
-                     'last_name', 'middle_name', 'phone_number', 'card_limit')
+                     'last_name', 'middle_name', 'phone_number',
+                     'card_limit', 'created')
     list_filter = ('payment_type', 'account_type', 'first_name',
                    'last_name', 'middle_name', 'phone_number', 'card_limit')
 

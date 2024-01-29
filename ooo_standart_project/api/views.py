@@ -1,8 +1,14 @@
 from rest_framework import permissions, viewsets
+from django.views.generic import ListView
 
 from .serializers import PaymentRequestReadSerializer, RequisiteReadSerializer
 from request.models import Requisite, PaymentRequest
 from .pagination import RequestPagination
+
+
+class HomePage(ListView):
+    template_name = 'base.html'
+    model = Requisite
 
 
 class RequisiteViewSet(viewsets.ModelViewSet):
