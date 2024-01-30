@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}
+  Лента заявок
+{% endblock %}
+{% block content %}
+  {% for payment in page_obj %}
+    <article class="mb-5">
+      {% include "includes/payment_card.html" %}
+    </article>
+  {% endfor %}
+  {% include "includes/paginator.html" %}
+{% endblock %}

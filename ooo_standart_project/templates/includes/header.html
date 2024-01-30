@@ -32,7 +32,7 @@
 
 {% endwith %} {% endcomment %}
 <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;>
     <div class="container-fluid">
         {% comment %} <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,12 +41,12 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link {% if view_name == 'api:index' %}active{% endif %}" href="{% url 'api:index' %}">
+            <a class="nav-link {% if view_name == 'api:payment' %}active{% endif %}" href="{% url 'api:payment' %}">
                 Заявки на оплату
             </a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">
+              <a class="nav-link {% if view_name == 'api:requisite' %}active{% endif %}" href="{% url 'api:requisite' %}">
                 Реквизиты
             </a>
             </li>

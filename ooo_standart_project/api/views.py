@@ -6,8 +6,8 @@ from request.models import Requisite, PaymentRequest
 from .pagination import RequestPagination
 
 
-class HomePage(ListView):
-    template_name = 'request/index.html'
+class PaymentPage(ListView):
+    template_name = 'request/payment.html'
     model = PaymentRequest
     paginate_by = 10
 
@@ -18,8 +18,13 @@ class HomePage(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['payment'] = PaymentRequest.objects.all
         return context
+
+
+class RequsitePage(ListView):
+    template_name = 'request/requsite.html'
+    model = Requisite
+    paginate_by = 10
 
 
 class RequisiteViewSet(viewsets.ModelViewSet):

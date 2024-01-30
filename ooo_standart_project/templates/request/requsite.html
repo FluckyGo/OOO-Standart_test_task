@@ -3,9 +3,9 @@
   Лента заявок
 {% endblock %}
 {% block content %}
-  {% for payment in page_obj %}
+  {% for requsite in page_obj %}
     <article class="mb-5">
-      {% include "includes/post_card.html" %}
+      {% include "includes/requsite_card.html" %}
     </article>
   {% endfor %}
   {% include "includes/paginator.html" %}
