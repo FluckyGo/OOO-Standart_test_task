@@ -7,8 +7,19 @@ from .pagination import RequestPagination
 
 
 class HomePage(ListView):
-    template_name = 'base.html'
-    model = Requisite
+    template_name = 'request/index.html'
+    model = PaymentRequest
+    paginate_by = 10
+
+    def get_queryset(self):
+        return PaymentRequest.objects.select_related(
+            'requisites'
+        )
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['payment'] = PaymentRequest.objects.all
+        return context
 
 
 class RequisiteViewSet(viewsets.ModelViewSet):
