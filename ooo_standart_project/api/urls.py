@@ -7,7 +7,7 @@ from .views import (PaymentRequestViewSet, RequisiteViewSet,
 
 router = DefaultRouter()
 router.register('requisites', RequisiteViewSet)
-router.register('requests', PaymentRequestViewSet)
+router.register('invoices', PaymentRequestViewSet)
 
 app_name = 'api'
 

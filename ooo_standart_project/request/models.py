@@ -47,7 +47,7 @@ class PaymentRequest(models.Model):
 
     status = models.CharField(
         'Статус заявки', choices=STATUS_CHOICES,
-        max_length=REQUISITE_MAX_LENGTH)
+        max_length=REQUISITE_MAX_LENGTH, default=STATUS_CHOICES[0])
 
     created = models.DateTimeField('Дата создания', auto_now_add=True)
 
