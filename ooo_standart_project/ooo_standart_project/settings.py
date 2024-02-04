@@ -92,6 +92,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'api:requisite'
 
 LANGUAGE_CODE = 'ru-RU'
 
