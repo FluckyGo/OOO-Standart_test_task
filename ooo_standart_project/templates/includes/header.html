@@ -3,13 +3,9 @@
 
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        {% comment %} <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button> {% endcomment %}
+    <div class="container-fluid">        
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="nav nav-pills">
             <li class="nav-item">
             <a class="nav-link {% if view_name == 'api:payment' %}active{% endif %}" href="{% url 'api:payment' %}">
                 Заявки на оплату
@@ -22,13 +18,17 @@
             </li>
             {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'api:profile' user.username %}">Профиль пользователя</a>
+                <a class="nav-link {% if view_name == 'api:profile' %}active{% endif %}" href="{% url 'api:profile' user.username %}">
+                  Профиль пользователя
+                </a>
               </li>
             {% else %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Войти</a>
+                <a class="nav-link {% if view_name == 'login' %}active{% endif %}" href="{% url 'login' %}">
+                  Войти
+                </a>
+                
               </li>
-
             {% endif %}
         </ul>
         <form class="d-flex" role="search">
