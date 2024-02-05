@@ -53,15 +53,18 @@
                     <button type="submit" class="btn btn-primary mx-3 mt-3">Применить</button>
                 </form>
               </div>
+
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" action="{% url 'request:search' %}" method="GET" name="q">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+
             {% else %}
             {% endif %}
         </ul>       
 
         
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" action="{% url 'request:search' %}" method="GET" name="q">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        
         </div>
     </div>
     </nav>
