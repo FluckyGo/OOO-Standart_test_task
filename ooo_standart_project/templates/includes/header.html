@@ -6,19 +6,22 @@
     <div class="container-fluid">        
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="nav nav-pills">
+
             <li class="nav-item">
-            <a class="nav-link {% if view_name == 'api:payment' %}active{% endif %}" href="{% url 'api:payment' %}">
+            <a class="nav-link {% if view_name == 'request:payment' %}active{% endif %}" href="{% url 'request:payment' %}">
                 Заявки на оплату
             </a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link {% if view_name == 'api:requisite' %}active{% endif %}" href="{% url 'api:requisite' %}">
+              <a class="nav-link {% if view_name == 'request:requisite' %}active{% endif %}" href="{% url 'request:requisite' %}">
                 Реквизиты
             </a>
-            </li>
+            </li>            
+            
             {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link {% if view_name == 'api:profile' %}active{% endif %}" href="{% url 'api:profile' user.username %}">
+                <a class="nav-link {% if view_name == 'request:profile' %}active{% endif %}" href="{% url 'request:profile' user.username %}">
                   Профиль пользователя
                 </a>
               </li>
@@ -26,13 +29,37 @@
               <li class="nav-item">
                 <a class="nav-link {% if view_name == 'login' %}active{% endif %}" href="{% url 'login' %}">
                   Войти
-                </a>
-                
+                </a>                
               </li>
             {% endif %}
-        </ul>
+            
+            {% if view_name == 'request:requisite' %}            
+              <div class="dropdown mb-2">
+                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Фильтры
+                </button>
+        
+                <form action="" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
+                    <div class="form-check text-white mx-3">
+                      {% for page in page_obj %}                        
+                        <input class="form-check-input" type="checkbox" name="order_by" id="flexCheckDefault" value="page">
+                        <input type="hidden" name="q" value="request.GET.q">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          {{ print.page }}                            
+                        </label>
+                      {% endfor %}
+                    </div>                  
+                    <button type="submit" class="btn btn-primary mx-3 mt-3">Применить</button>
+                </form>
+              </div>
+            {% else %}
+            {% endif %}
+        </ul>       
+
+        
         <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" action="{% url 'request:search' %}" method="GET" name="q">
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         </div>

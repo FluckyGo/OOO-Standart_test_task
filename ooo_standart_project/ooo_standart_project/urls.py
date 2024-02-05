@@ -1,9 +1,10 @@
 from django.contrib import admin
-from django.urls import path, include, reverse_lazy
-from django.contrib.auth import views
+from django.urls import path, include
+
 
 urlpatterns = [
+    path('', include('request.urls')),
     path('admin/', admin.site.urls),
-    path('', include('api.urls')),
+    path('api/v1/', include('api.urls')),
     path('auth/', include('django.contrib.auth.urls')),
 ]
