@@ -33,23 +33,49 @@
               </li>
             {% endif %}
             
-            {% if view_name == 'request:requisite' %}            
+            {% if view_name == 'request:requisite' or 'request:search' %}            
               <div class="dropdown mb-2">
                 <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     Фильтры
                 </button>
         
-                <form action="" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
-                    <div class="form-check text-white mx-3">
-                      {% for page in page_obj %}                        
-                        <input class="form-check-input" type="checkbox" name="order_by" id="flexCheckDefault" value="page">
-                        <input type="hidden" name="q" value="request.GET.q">
-                        <label class="form-check-label" for="flexCheckDefault">
-                          {{ print.page }}                            
-                        </label>
-                      {% endfor %}
-                    </div>                  
+                <form action="{% url 'request:search' %}" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
+                    <div class="form-check text-white mx-3">                                              
+                      <input class="form-check-input" type="checkbox" name="order_by" id="flexCheckDefault" value="-created">
+                      {% if request.GET.q %}
+                        <input type="hidden" name="q" value={{ request.GET.q }}>
+                      {% endif %}
+                      <label class="form-check-label" for="flexCheckDefault">Default</label>                      
+                    </div>
+                    <div class="form-check text-white mx-3">                                              
+                        <input class="form-check-input" type="checkbox" name="order_by" id="flexCheckDefault1" value="payment_type">                        
+                        <label class="form-check-label" for="flexCheckDefault1">payment_type</label>                      
+                    </div>
+                    <div class="form-check text-white mx-3">                                              
+                      <input class="form-check-input" type="checkbox" name="order_by" id="flexCheckDefault2" value="account_type">                      
+                      <label class="form-check-label" for="flexCheckDefault2">account_type</label>                      
+                    </div>
+                    <div class="form-check text-white mx-3">                                              
+                      <input class="form-check-input" type="checkbox" name="order_by" id="flexCheckDefault3" value="first_name">                      
+                      <label class="form-check-label" for="flexCheckDefault3">first_name</label>                      
+                    </div>
+                    <div class="form-check text-white mx-3">                                              
+                      <input class="form-check-input" type="checkbox" name="order_by" id="flexCheckDefault4" value="last_name">                      
+                      <label class="form-check-label" for="flexCheckDefault4">last_name</label>                      
+                    </div>
+                    <div class="form-check text-white mx-3">                                              
+                      <input class="form-check-input" type="checkbox" name="order_by" id="flexCheckDefault5" value="phone_number">                      
+                      <label class="form-check-label" for="flexCheckDefault5">phone_number</label>                      
+                    </div>
+                    <div class="form-check text-white mx-3">                                              
+                      <input class="form-check-input" type="checkbox" name="order_by" id="flexCheckDefault6" value="card_limit">                      
+                      <label class="form-check-label" for="flexCheckDefault6">card_limit</label>                      
+                    </div>               
+                    <div class="form-check text-white mx-3">                                              
+                      <input class="form-check-input" type="checkbox" name="order_by" id="flexCheckDefault7" value="created">                      
+                      <label class="form-check-label" for="flexCheckDefault7">created</label>                      
+                    </div>
                     <button type="submit" class="btn btn-primary mx-3 mt-3">Применить</button>
                 </form>
               </div>
@@ -61,10 +87,7 @@
 
             {% else %}
             {% endif %}
-        </ul>       
-
-        
-        
+        </ul>
         </div>
     </div>
     </nav>

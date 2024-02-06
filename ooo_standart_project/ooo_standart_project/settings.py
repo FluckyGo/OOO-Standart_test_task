@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django_seed',
     'django_bootstrap5',
+    'debug_toolbar',
+    'drf_yasg',
     'phonenumbers',
     'phonenumber_field',
     'users.apps.UsersConfig',
@@ -43,6 +45,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+]
+
+INTERNAL_IPS = [
+    '127.0.0.1',
 ]
 
 ROOT_URLCONF = 'ooo_standart_project.urls'

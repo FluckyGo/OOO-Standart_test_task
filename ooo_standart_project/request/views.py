@@ -29,9 +29,9 @@ class RequsitePage(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        q = self.request.GET.get("q")
+        q = self.request.GET.get('q')
+        order_by = self.request.GET.get('order_by')
         if q:
-            q = self.request.GET.get("q")
             q_lst = q.split(",")
             return queryset.filter(Q(payment_type__in=q_lst) |
                                    Q(account_type__in=q_lst) |
@@ -39,6 +39,8 @@ class RequsitePage(ListView):
                                    Q(last_name__in=q_lst) |
                                    Q(phone_number__in=q_lst)
                                    )
+        if order_by:
+            return queryset.order_by(order_by)
         return queryset
 
 
