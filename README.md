@@ -24,7 +24,7 @@ POSTGRES_PASSWORD=postgres
 DB_HOST=db
 DB_PORT=5432
 ```
-**_Перейти в папку nginx:**
+**Перейти в папку nginx:**
 ```
 cd nginx/
 ```
@@ -45,9 +45,16 @@ sudo docker compose exec backend python manage.py createsuperuser
 
 ```
 
-**_Наполение проекта данными с помощью DB seeder для Django ORM:**
+**Наполение проекта данными с помощью DB seeder для Django ORM:**
 ```
 sudo docker compose exec backend python manage.py seed request --number=100
+
+```
+
+**Возможное дальнейшее развитие проекта :**
+```
+- Отказаться от templates и для frontend использовать SPA React
+- Написать тесты на Pytest
 
 ```
 
